@@ -6,12 +6,11 @@
    CONFIGURAÇÃO — preencha antes de publicar
    -------------------------------------------------------------------------- */
 const CONFIG = {
-  // Número do WhatsApp com código do país e DDD, só dígitos.
-  // Ex.: (24) 99999-8888 em Volta Redonda -> '5524999998888'
-  whatsapp: '',
+  // Número do WhatsApp com código do país e DDD, só dígitos: (24) 98181-1223
+  whatsapp: '5524981811223',
 
   // Mensagem inicial ao clicar no botão flutuante do WhatsApp.
-  saudacao: 'Olá! Vim pelo site e gostaria de saber mais sobre automação residencial.',
+  saudacao: 'Olá! Vim pelo site da Habitaut e gostaria de saber mais sobre automação residencial.',
 };
 
 /* --------------------------------------------------------------------------
@@ -108,15 +107,15 @@ if (form) {
   };
 
   const validate = () => {
-    const { nome, telefone, email, estagio } = form.elements;
+    const { nome, telefone, email, interesse } = form.elements;
     const digits = telefone.value.replace(/\D/g, '');
 
     const results = [
       setError('nome', nome.value.trim().length < 2 ? 'Informe seu nome.' : ''),
-      setError('telefone', digits.length < 10 ? 'Informe um WhatsApp com DDD.' : ''),
+      setError('telefone', digits.length < 10 ? 'Informe um telefone com DDD.' : ''),
       setError('email', email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
         ? 'E-mail inválido.' : ''),
-      setError('estagio', !estagio.value ? 'Selecione o estágio da obra.' : ''),
+      setError('interesse', !interesse.value ? 'Selecione o seu interesse.' : ''),
     ];
 
     return results.every(Boolean);
@@ -137,15 +136,15 @@ if (form) {
       return;
     }
 
-    const { nome, telefone, email, estagio, mensagem } = form.elements;
+    const { nome, telefone, email, interesse, mensagem } = form.elements;
     const linhas = [
       'Olá! Vim pelo site da Habitaut.',
       '',
       `Nome: ${nome.value.trim()}`,
-      `WhatsApp: ${telefone.value.trim()}`,
+      `Telefone: ${telefone.value.trim()}`,
       email.value.trim() ? `E-mail: ${email.value.trim()}` : null,
-      `Estágio da obra: ${estagio.value}`,
-      mensagem.value.trim() ? `\nO que quero automatizar:\n${mensagem.value.trim()}` : null,
+      `Interesse: ${interesse.value}`,
+      mensagem.value.trim() ? `\nMensagem:\n${mensagem.value.trim()}` : null,
     ].filter(Boolean);
 
     const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(linhas.join('\n'))}`;
