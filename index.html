@@ -411,6 +411,28 @@
               <span><strong>Instagram</strong><br><a href="https://instagram.com/habitaut_vr" target="_blank" rel="noopener">@habitaut_vr</a></span>
             </li>
           </ul>
+
+          <!-- ============================================================
+               MAPA — TROCAR O ENDEREÇO AQUI
+               Hoje o mapa está centrado em Volta Redonda (correto, porém
+               genérico). Para fixar o pino no endereço exato, troque o
+               trecho depois de "?q=" nos DOIS links abaixo (o do iframe e o
+               do "Abrir no Google Maps") pelo endereço com os espaços
+               virando "+", por exemplo:
+                 ?q=Rua+Exemplo,+123+-+Aterrado,+Volta+Redonda+-+RJ
+               Sem chave de API: o parâmetro &output=embed já entrega o mapa.
+               ============================================================ -->
+          <div class="map reveal">
+            <iframe
+              src="https://www.google.com/maps?q=Volta+Redonda+-+RJ&z=13&output=embed"
+              title="Mapa da localização da Habitaut em Volta Redonda – RJ"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <p class="map-note">
+            Atendemos toda a região Sul-Fluminense.
+            <a href="https://www.google.com/maps?q=Volta+Redonda+-+RJ" target="_blank" rel="noopener">Abrir no Google Maps</a>
+          </p>
         </div>
 
         <form class="form reveal" id="contatoForm" novalidate>
