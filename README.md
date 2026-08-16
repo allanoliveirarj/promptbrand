@@ -84,14 +84,7 @@ Salve os arquivos em `assets/img/` com estes nomes:
 Otimizar antes de subir (no Mac, com `cwebp` ou qualquer conversor): largura de
 1500&nbsp;px basta, e o arquivo deve ficar abaixo de ~250&nbsp;KB.
 
-### 2. Endereço do mapa
-
-O mapa está apontando para a **busca pelo nome** "Habitaut Volta Redonda RJ", o que
-funciona enquanto o perfil da empresa estiver no Google Maps. **Confira se o pino cai no
-lugar certo** ao abrir o site. Se não cair, troque pelo endereço — instruções no
-comentário do próprio `index.html`.
-
-### 3. Conferir telefone e e-mail
+### 2. Conferir telefone e e-mail
 
 Vieram do site antigo e ainda não foram confirmados:
 
