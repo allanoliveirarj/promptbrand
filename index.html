@@ -7,7 +7,7 @@
 <meta name="description" content="Sistemas de automação residencial ao seu alcance: domótica, CFTV, portaria e acessibilidade. Controle sua casa local ou remotamente, por um preço inteligente. Volta Redonda e região Sul-Fluminense.">
 <meta name="keywords" content="volta redonda, automação residencial, habitaut, casa inteligente, domótica, CFTV, portaria, controle da casa pelo celular, sul-fluminense">
 <meta name="author" content="Habitaut Automações">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#0B1030">
 <link rel="icon" href="assets/img/logo-mark.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/logo-mark.png">
 
@@ -23,7 +23,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <script type="application/ld+json">
@@ -50,7 +50,9 @@
 
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="site-header" id="topo">
+<!-- t-navy: o header não pinta o próprio fundo com --bg (usa um rgba com blur),
+     mas precisa do tema para resolver os tokens do botão e das bordas. -->
+<header class="site-header t-navy" id="topo">
   <div class="wrap header-inner">
     <a class="brand" href="#topo" aria-label="Habitaut — início">
       <img src="assets/img/logo.png" alt="Habitaut" width="900" height="224">
@@ -63,6 +65,7 @@
     <nav class="nav" id="navMenu" aria-label="Navegação principal">
       <a href="#solucoes">Soluções</a>
       <a href="#produtos">Produtos</a>
+      <a href="#ambientes">Ambientes</a>
       <a href="#empresa">Empresa</a>
       <a href="#faq">Dúvidas</a>
       <a class="btn btn-sm btn-primary nav-cta" href="#contato">Fale conosco</a>
@@ -72,20 +75,29 @@
 
 <main id="conteudo">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+  <!-- ============ HERO — azul escuro ============ -->
+  <section class="hero t-navy">
     <div class="hero-glow" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <p class="eyebrow reveal">Casa inteligente ao seu alcance</p>
-      <h1 class="reveal">O futuro da tecnologia<br>agora em <em>suas mãos</em></h1>
-      <p class="lead reveal">
-        Luxo, conforto e segurança para a sua residência. Domótica, CFTV, portaria e
-        acessibilidade em sistemas com tecnologia própria — controlados de onde você estiver,
-        por um preço inteligente.
-      </p>
-      <div class="hero-actions reveal">
-        <a class="btn btn-primary" href="#contato">Solicitar orçamento</a>
-        <a class="btn btn-ghost" href="#solucoes">Ver soluções</a>
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="reveal">
+          <p class="eyebrow">Casa inteligente ao seu alcance</p>
+          <h1>O futuro da tecnologia<br>agora em <em>suas mãos</em></h1>
+          <p class="lead">
+            Luxo, conforto e segurança para a sua residência. Domótica, CFTV, portaria e
+            acessibilidade em sistemas com tecnologia própria — controlados de onde você
+            estiver, por um preço inteligente.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Solicitar orçamento</a>
+            <a class="btn btn-ghost" href="#solucoes">Ver soluções</a>
+          </div>
+        </div>
+
+        <!-- IMAGEM 1 — hero. Trocar o comentário abaixo pelo <img> quando a foto existir. -->
+        <div class="media media-3x2 hero-media reveal">
+          <!-- <img src="assets/img/hero.webp" alt="Sala de estar moderna à noite com iluminação em cena" width="1500" height="1000"> -->
+        </div>
       </div>
 
       <dl class="stats reveal">
@@ -97,8 +109,8 @@
     </div>
   </section>
 
-  <!-- ============ PILARES ============ -->
-  <section class="section" id="solucoes">
+  <!-- ============ SOLUÇÕES — branco ============ -->
+  <section class="section t-paper" id="solucoes">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">Soluções</p>
@@ -109,7 +121,7 @@
         </p>
       </header>
 
-      <ul class="grid cards cards-4" role="list">
+      <ul class="grid cards" role="list">
         <li class="card reveal">
           <span class="card-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -153,8 +165,8 @@
     </div>
   </section>
 
-  <!-- ============ PRODUTOS ============ -->
-  <section class="section section-alt" id="produtos">
+  <!-- ============ PRODUTOS — azul médio ============ -->
+  <section class="section t-blue" id="produtos">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">Produtos</p>
@@ -169,103 +181,96 @@
         <article class="prod reveal">
           <h3>Domótica</h3>
           <div class="prod-groups">
-            <div>
-              <h4>Energia</h4>
-              <p>Tomadas, motores, irrigação, forno elétrico, fontes luminosas e acionamentos em geral.</p>
-            </div>
-            <div>
-              <h4>Iluminação</h4>
-              <p>Lâmpadas, refletores, fita LED, holofotes e outros pontos de luz.</p>
-            </div>
-            <div>
-              <h4>Sensores</h4>
-              <p>Movimento, vazamento de gás, nível de caixa d'água, temperatura e umidade.</p>
-            </div>
-            <div>
-              <h4>Controle de ambiente</h4>
-              <p>TV, home theater, DVD/Blu-ray, ar-condicionado e outros equipamentos.</p>
-            </div>
-            <div>
-              <h4>Acesso remoto</h4>
-              <p>ADSL, fibra óptica, 3G/4G e soluções para áreas rurais.</p>
-            </div>
+            <div><h4>Energia</h4><p>Tomadas, motores, irrigação, forno elétrico, fontes luminosas e acionamentos em geral.</p></div>
+            <div><h4>Iluminação</h4><p>Lâmpadas, refletores, fita LED, holofotes e outros pontos de luz.</p></div>
+            <div><h4>Sensores</h4><p>Movimento, vazamento de gás, nível de caixa d'água, temperatura e umidade.</p></div>
+            <div><h4>Controle de ambiente</h4><p>TV, home theater, DVD/Blu-ray, ar-condicionado e outros equipamentos.</p></div>
+            <div><h4>Acesso remoto</h4><p>ADSL, fibra óptica, 3G/4G e soluções para áreas rurais.</p></div>
           </div>
         </article>
 
         <article class="prod reveal">
           <h3>Monitoramento</h3>
           <div class="prod-groups">
-            <div>
-              <h4>Câmeras</h4>
-              <p>Analógicas, digitais e HD, para ambientes internos e externos.</p>
-            </div>
-            <div>
-              <h4>Gravadores stand alone</h4>
-              <p>Analógicos, digitais e HD, com armazenamento local.</p>
-            </div>
-            <div>
-              <h4>Acesso remoto</h4>
-              <p>ADSL, fibra óptica, 3G/4G e soluções para áreas rurais.</p>
-            </div>
-            <div>
-              <h4>Alarmes e portaria</h4>
-              <p>Integração do monitoramento com alarmes e sistemas de portaria.</p>
-            </div>
+            <div><h4>Câmeras</h4><p>Analógicas, digitais e HD, para ambientes internos e externos.</p></div>
+            <div><h4>Gravadores stand alone</h4><p>Analógicos, digitais e HD, com armazenamento local.</p></div>
+            <div><h4>Acesso remoto</h4><p>ADSL, fibra óptica, 3G/4G e soluções para áreas rurais.</p></div>
+            <div><h4>Alarmes e portaria</h4><p>Integração do monitoramento com alarmes e sistemas de portaria.</p></div>
           </div>
         </article>
 
         <article class="prod reveal">
           <h3>Portaria</h3>
           <div class="prod-groups">
-            <div>
-              <h4>Portões de garagem</h4>
-              <p>Pivotantes, deslizantes e basculantes, em versão residencial ou condominial.</p>
-            </div>
-            <div>
-              <h4>Acesso de pedestres</h4>
-              <p>Fechadura eletrônica, fechadura biométrica e eletroímã.</p>
-            </div>
-            <div>
-              <h4>Galpões e porteiras</h4>
-              <p>Acesso remoto, kits industriais e automação de porteiras.</p>
-            </div>
-            <div>
-              <h4>Interfonia</h4>
-              <p>PABX, VOIP, porteiro eletrônico e vídeo porteiro.</p>
-            </div>
-            <div>
-              <h4>Controle de acesso</h4>
-              <p>Gestão de quem entra e sai, com registro de eventos.</p>
-            </div>
+            <div><h4>Portões de garagem</h4><p>Pivotantes, deslizantes e basculantes, em versão residencial ou condominial.</p></div>
+            <div><h4>Acesso de pedestres</h4><p>Fechadura eletrônica, fechadura biométrica e eletroímã.</p></div>
+            <div><h4>Galpões e porteiras</h4><p>Acesso remoto, kits industriais e automação de porteiras.</p></div>
+            <div><h4>Interfonia</h4><p>PABX, VOIP, porteiro eletrônico e vídeo porteiro.</p></div>
+            <div><h4>Controle de acesso</h4><p>Gestão de quem entra e sai, com registro de eventos.</p></div>
           </div>
         </article>
 
         <article class="prod reveal">
           <h3>Acessibilidade</h3>
           <div class="prod-groups">
-            <div>
-              <h4>Personalização</h4>
-              <p>Funções integradas e compatibilidade adaptadas à necessidade de cada morador.</p>
-            </div>
-            <div>
-              <h4>Planos especiais</h4>
-              <p>Condições diferenciadas para pessoas com mobilidade reduzida.</p>
-            </div>
+            <div><h4>Personalização</h4><p>Funções integradas e compatibilidade adaptadas à necessidade de cada morador.</p></div>
+            <div><h4>Planos especiais</h4><p>Condições diferenciadas para pessoas com mobilidade reduzida.</p></div>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ EMPRESA ============ -->
-  <section class="section" id="empresa">
+  <!-- ============ AMBIENTES — azul escuro ============ -->
+  <section class="section t-navy" id="ambientes">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">Ambientes</p>
+        <h2>O que muda no dia a dia</h2>
+        <p class="section-sub">
+          A automação aparece pouco e resolve muito. Veja o efeito em cada parte da casa.
+        </p>
+      </header>
+
+      <ul class="gallery" role="list">
+        <!-- IMAGENS 2, 3 e 4 — ambientes. Inserir o <img> dentro de cada .media. -->
+        <li class="reveal">
+          <figure>
+            <div class="media media-4x3">
+              <!-- <img src="assets/img/ambiente-sala.webp" alt="Sala integrada com iluminação em cena noturna" width="1200" height="900"> -->
+            </div>
+            <figcaption><strong>Sala integrada</strong>Uma cena acende a luz certa, fecha as cortinas e liga o som.</figcaption>
+          </figure>
+        </li>
+        <li class="reveal">
+          <figure>
+            <div class="media media-4x3">
+              <!-- <img src="assets/img/ambiente-home-theater.webp" alt="Home theater com projeção e cortina motorizada" width="1200" height="900"> -->
+            </div>
+            <figcaption><strong>Home theater</strong>Projeção, cortina e climatização respondendo a um só comando.</figcaption>
+          </figure>
+        </li>
+        <li class="reveal">
+          <figure>
+            <div class="media media-4x3">
+              <!-- <img src="assets/img/ambiente-fachada.webp" alt="Fachada residencial à noite com iluminação e câmera de segurança" width="1200" height="900"> -->
+            </div>
+            <figcaption><strong>Fachada e acesso</strong>Portão, câmeras e iluminação externa no celular, de onde estiver.</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EMPRESA — branco ============ -->
+  <section class="section t-paper" id="empresa">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">Empresa</p>
         <h2>A Habitaut</h2>
       </header>
 
-      <div class="split empresa-split">
+      <div class="split">
         <div class="reveal">
           <p class="empresa-text">
             Nasce em meados de <strong>2013, em Volta Redonda&nbsp;–&nbsp;RJ</strong>, com o objetivo de
@@ -282,49 +287,55 @@
             recursos existentes no mercado, a Habitaut é capaz de desenvolver produtos com qualidade
             e confiabilidade, disponibilizando-os com os preços mais acessíveis do mercado.
           </p>
+
+          <ul class="valores" role="list">
+            <li>
+              <h3>Missão</h3>
+              <p>Permitir um dia a dia cada vez mais prático, confortável e simples, ao alcance de todos.</p>
+            </li>
+            <li>
+              <h3>Visão e valores</h3>
+              <p>Nosso principal valor é o ser humano — vemos colaboradores e clientes como parceiros da empresa, pois somente por meio do bom relacionamento entre todos os envolvidos podemos permanecer em constante evolução profissional e crescimento pessoal.</p>
+            </li>
+            <li>
+              <h3>Política de qualidade</h3>
+              <p>Não medimos esforços para proporcionar toda a atenção e dedicação que você, cliente, merece no atendimento. Só assim identificamos suas maiores necessidades e ambições, para desenvolver e oferecer tecnologias confiáveis e adequadas, garantindo um serviço com qualidade.</p>
+            </li>
+          </ul>
         </div>
 
-        <ul class="valores reveal" role="list">
-          <li>
-            <h3>Missão</h3>
-            <p>Permitir um dia a dia cada vez mais prático, confortável e simples, ao alcance de todos.</p>
-          </li>
-          <li>
-            <h3>Visão e valores</h3>
-            <p>
-              Nosso principal valor é o ser humano — vemos colaboradores e clientes como parceiros da
-              empresa, pois somente por meio do bom relacionamento entre todos os envolvidos podemos
-              permanecer em constante evolução profissional e crescimento pessoal.
-            </p>
-          </li>
-          <li>
-            <h3>Política de qualidade</h3>
-            <p>
-              Não medimos esforços para proporcionar toda a atenção e dedicação que você, cliente,
-              merece no atendimento. Só assim identificamos suas maiores necessidades e ambições, para
-              desenvolver e oferecer tecnologias confiáveis e adequadas, garantindo um serviço com
-              qualidade.
-            </p>
-          </li>
-        </ul>
+        <!-- IMAGEM 5 — empresa / equipe técnica. -->
+        <div class="media media-4x3 reveal">
+          <!-- <img src="assets/img/empresa.webp" alt="Técnico da Habitaut configurando um painel de automação" width="1200" height="900"> -->
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SHOWROOM ============ -->
-  <section class="showroom">
-    <div class="wrap showroom-inner reveal">
-      <h2>Conheça o nosso showroom</h2>
-      <p>
-        Solicite hoje mesmo uma visita e conheça na prática todo o conforto, comodidade e
-        confiabilidade dos sistemas Habitaut.
-      </p>
-      <a class="btn btn-primary" href="#contato">Agendar uma visita</a>
+  <!-- ============ SHOWROOM — azul médio ============ -->
+  <section class="showroom t-blue">
+    <div class="wrap">
+      <div class="showroom-inner">
+        <div class="reveal">
+          <p class="eyebrow">Showroom</p>
+          <h2>Venha sentir o sistema funcionando</h2>
+          <p>
+            Solicite hoje mesmo uma visita e conheça na prática todo o conforto, comodidade e
+            confiabilidade dos sistemas Habitaut.
+          </p>
+          <a class="btn btn-primary" href="#contato">Agendar uma visita</a>
+        </div>
+
+        <!-- IMAGEM 6 — showroom. -->
+        <div class="media media-3x2 reveal">
+          <!-- <img src="assets/img/showroom.webp" alt="Showroom da Habitaut com painéis de automação em demonstração" width="1500" height="1000"> -->
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="section" id="faq">
+  <!-- ============ DÚVIDAS — branco ============ -->
+  <section class="section t-paper" id="faq">
     <div class="wrap narrow">
       <header class="section-head reveal">
         <p class="eyebrow">Dúvidas frequentes</p>
@@ -360,8 +371,8 @@
     </div>
   </section>
 
-  <!-- ============ CONTATO ============ -->
-  <section class="section section-alt" id="contato">
+  <!-- ============ CONTATO — azul escuro ============ -->
+  <section class="section t-navy" id="contato">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="eyebrow">Contato</p>
@@ -458,6 +469,7 @@
     <nav class="footer-nav" aria-label="Rodapé">
       <a href="#solucoes">Soluções</a>
       <a href="#produtos">Produtos</a>
+      <a href="#ambientes">Ambientes</a>
       <a href="#empresa">Empresa</a>
       <a href="#faq">Dúvidas</a>
       <a href="#contato">Contato</a>
