@@ -283,8 +283,7 @@ ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- showroom ---------- */
 .showroom { position: relative; background: var(--bg); color: var(--text); padding: clamp(3.5rem, 7vw, 5.5rem) 0; overflow: hidden; }
-.showroom-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
-@media (max-width: 940px) { .showroom-inner { grid-template-columns: 1fr; } }
+.showroom-inner { position: relative; text-align: center; max-width: 640px; margin-inline: auto; }
 .showroom h2 { font-size: clamp(1.9rem, 3.8vw, 2.7rem); }
 .showroom p { color: var(--muted); margin: 1.1rem 0 2rem; }
 

@@ -94,9 +94,9 @@
           </div>
         </div>
 
-        <!-- IMAGEM 1 — hero. Trocar o comentário abaixo pelo <img> quando a foto existir. -->
         <div class="media media-3x2 hero-media reveal">
-          <!-- <img src="assets/img/hero.webp" alt="Sala de estar moderna à noite com iluminação em cena" width="1500" height="1000"> -->
+          <img src="assets/img/hero.webp" width="1500" height="1000" fetchpriority="high"
+               alt="Sala de estar ampla à noite, com iluminação em cena, lareira acesa e painel de controle na parede">
         </div>
       </div>
 
@@ -233,11 +233,11 @@
       </header>
 
       <ul class="gallery" role="list">
-        <!-- IMAGENS 2, 3 e 4 — ambientes. Inserir o <img> dentro de cada .media. -->
         <li class="reveal">
           <figure>
             <div class="media media-4x3">
-              <!-- <img src="assets/img/ambiente-sala.webp" alt="Sala integrada com iluminação em cena noturna" width="1200" height="900"> -->
+              <img src="assets/img/ambiente-sala.webp" width="1200" height="900" loading="lazy"
+                   alt="Sala e jantar integrados à noite, com painel de controle na parede e iluminação em cena">
             </div>
             <figcaption><strong>Sala integrada</strong>Uma cena acende a luz certa, fecha as cortinas e liga o som.</figcaption>
           </figure>
@@ -245,7 +245,8 @@
         <li class="reveal">
           <figure>
             <div class="media media-4x3">
-              <!-- <img src="assets/img/ambiente-home-theater.webp" alt="Home theater com projeção e cortina motorizada" width="1200" height="900"> -->
+              <img src="assets/img/ambiente-home-theater.webp" width="1200" height="900" loading="lazy"
+                   alt="Home theater com tela de projeção descida, poltronas reclináveis e iluminação de LED azul">
             </div>
             <figcaption><strong>Home theater</strong>Projeção, cortina e climatização respondendo a um só comando.</figcaption>
           </figure>
@@ -253,7 +254,8 @@
         <li class="reveal">
           <figure>
             <div class="media media-4x3">
-              <!-- <img src="assets/img/ambiente-fachada.webp" alt="Fachada residencial à noite com iluminação e câmera de segurança" width="1200" height="900"> -->
+              <img src="assets/img/ambiente-fachada.webp" width="1200" height="900" loading="lazy"
+                   alt="Fachada residencial à noite com iluminação cênica, portão ripado automatizado e câmera na parede">
             </div>
             <figcaption><strong>Fachada e acesso</strong>Portão, câmeras e iluminação externa no celular, de onde estiver.</figcaption>
           </figure>
@@ -304,9 +306,9 @@
           </ul>
         </div>
 
-        <!-- IMAGEM 5 — empresa / equipe técnica. -->
         <div class="media media-4x3 reveal">
-          <!-- <img src="assets/img/empresa.webp" alt="Técnico da Habitaut configurando um painel de automação" width="1200" height="900"> -->
+          <img src="assets/img/empresa.webp" width="1200" height="900" loading="lazy"
+               alt="Técnico ligando os cabos de um controlador de automação em quadro elétrico organizado e identificado">
         </div>
       </div>
     </div>
@@ -315,21 +317,16 @@
   <!-- ============ SHOWROOM — azul médio ============ -->
   <section class="showroom t-blue">
     <div class="wrap">
-      <div class="showroom-inner">
-        <div class="reveal">
-          <p class="eyebrow">Showroom</p>
-          <h2>Venha sentir o sistema funcionando</h2>
-          <p>
-            Solicite hoje mesmo uma visita e conheça na prática todo o conforto, comodidade e
-            confiabilidade dos sistemas Habitaut.
-          </p>
-          <a class="btn btn-primary" href="#contato">Agendar uma visita</a>
-        </div>
-
-        <!-- IMAGEM 6 — showroom. -->
-        <div class="media media-3x2 reveal">
-          <!-- <img src="assets/img/showroom.webp" alt="Showroom da Habitaut com painéis de automação em demonstração" width="1500" height="1000"> -->
-        </div>
+      <!-- Faixa em coluna única: sem foto do showroom, o texto centralizado fecha
+           melhor do que repetir uma imagem já usada em outra seção. -->
+      <div class="showroom-inner reveal">
+        <p class="eyebrow">Showroom</p>
+        <h2>Venha sentir o sistema funcionando</h2>
+        <p>
+          Solicite hoje mesmo uma visita e conheça na prática todo o conforto, comodidade e
+          confiabilidade dos sistemas Habitaut.
+        </p>
+        <a class="btn btn-primary" href="#contato">Agendar uma visita</a>
       </div>
     </div>
   </section>
