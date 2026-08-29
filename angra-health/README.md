@@ -37,16 +37,20 @@ inclusive em versões reduzidas (simulando leitura de longe).
 
 ## Identidade
 
-- **Paleta:** azul-profundo `#04182B` / `#052134`, verde-água `#2FD9BE` e `#5DE7D2`,
-  azul-oceano `#0E6E75` — referência à Costa Verde.
-- **Tipografia:** Montserrat (400 / 600 / 700 / 800 / 900).
-- **Símbolo:** círculo com linha de batimento cardíaco que se resolve em onda —
-  medicina + mar.
-- ⚠️ **O logo é um letreiro tipográfico montado aqui**, porque o arquivo oficial do
-  Angra Health não estava disponível. Se houver o logo oficial (SVG ou PNG com fundo
-  transparente), é só substituir o bloco `.brand` em `src/design.html`.
+- **Logo oficial** (`src/logo-angra-health.png`, PNG com fundo transparente e
+  lettering branco) aplicado nas três peças, sem redesenho.
+- **Paleta tirada do próprio logo:** losango claro `#7BC8D5`, médio `#3CADB6`,
+  escuro `#00828B`; fundo `#03212A` / `#05303B`.
+- **Motivo de fundo:** malha de losangos derivada do símbolo, em opacidade baixa e
+  com esmaecimento diagonal — reforça a marca sem competir com o QR.
+- **Tipografia de apoio:** Montserrat (400 / 600 / 700 / 800 / 900), que acompanha
+  bem o lettering do logo.
 - ⚠️ Conferir o texto **"III Simpósio de Medicina e Saúde da Costa Verde"** antes de
   imprimir.
+
+Se aparecer uma versão vetorial do logo (SVG / AI / EPS), vale trocar o PNG por ela
+antes de mandar para a gráfica: o PNG tem 1665 px de largura e, em impressão muito
+grande, é o único elemento da peça que não é vetor.
 
 ## Regerar / editar
 
@@ -56,7 +60,8 @@ node render.mjs "$(pwd)"        # gera PNG + PDF em ../out
 ```
 
 Requer Node com Playwright e a fonte Montserrat instalada no sistema.
-Todo o texto, as cores e os tamanhos estão em `src/design.html` — um arquivo só,
+Todo o texto, as cores e os tamanhos estão em `src/design.html` — um arquivo só
+(as cores da marca ficam no bloco `.art{--tl/--tm/--td}`),
 sem build. Para trocar o link do QR, regenere `qr.svg`:
 
 ```bash

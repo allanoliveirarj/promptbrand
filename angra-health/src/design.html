@@ -1,12 +1,14 @@
 <meta charset="utf-8">
 <title>Angra Health 2026 — Painel de Palco</title>
 <style>
-  @font-face{font-family:Mont;src:local('Montserrat');font-weight:400}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:#111}
   body{font-family:Montserrat,'Liberation Sans',sans-serif;-webkit-font-smoothing:antialiased}
 
-  .art{position:relative;overflow:hidden;background:#04182B;color:#fff;isolation:isolate}
+  /* ===== paleta oficial Angra Health =====
+     losango claro  #7BC8D5   losango médio #3CADB6   losango escuro #00828B  */
+  .art{--tl:#7BC8D5;--tm:#3CADB6;--td:#00828B;--ink:#03212A;
+       position:relative;overflow:hidden;background:var(--ink);color:#fff;isolation:isolate}
   .art.h{width:1920px;height:1080px}
   .art.v{width:1080px;height:1920px}
   .art.s{width:1200px;height:1200px}
@@ -15,85 +17,82 @@
   .bg{position:absolute;inset:0;z-index:0}
   .bg .grad{position:absolute;inset:0;
     background:
-      radial-gradient(120% 90% at 8% 0%, #0E6E75 0%, rgba(14,110,117,0) 58%),
-      radial-gradient(100% 80% at 100% 100%, #0B4E6B 0%, rgba(11,78,107,0) 60%),
-      linear-gradient(150deg,#052134 0%,#04182B 45%,#031523 100%);}
-  .bg svg{position:absolute;inset:0;width:100%;height:100%}
-  .bg .glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
+      radial-gradient(115% 85% at 6% -6%, #0A7D86 0%, rgba(10,125,134,0) 56%),
+      radial-gradient(95% 75% at 104% 106%, #045C6B 0%, rgba(4,92,107,0) 58%),
+      linear-gradient(152deg,#05303B 0%,#03212A 46%,#021920 100%);}
+  .bg .lattice{position:absolute;inset:0;opacity:.5}
+  .bg .glow{position:absolute;border-radius:50%;filter:blur(130px)}
 
   /* ---------- marca ---------- */
-  .brand{display:flex;align-items:center;gap:var(--bg-gap,28px)}
-  .mark{width:var(--mk,104px);height:var(--mk,104px);flex:none}
-  .wordmark{line-height:.94}
-  .wordmark .l1{font-weight:400;letter-spacing:.30em;font-size:var(--w1,44px);color:#DFF6F4;display:block}
-  .wordmark .l2{font-weight:900;letter-spacing:.055em;font-size:var(--w2,62px);
-    background:linear-gradient(92deg,#FFFFFF 20%,#5DE7D2 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
-  .subbrand{margin-top:var(--sbm,16px);font-weight:600;letter-spacing:.20em;font-size:var(--sb,17px);
-    color:#7FD8CE;text-transform:uppercase}
+  .logo{display:block;width:var(--lg,620px);height:auto}
+  .subbrand{margin-top:var(--sbm,20px);font-weight:600;letter-spacing:.19em;font-size:var(--sb,17px);
+    color:var(--tl);text-transform:uppercase}
 
-  .rule{height:3px;border-radius:3px;background:linear-gradient(90deg,#2FD9BE 0%,#2FD9BE 22%,rgba(47,217,190,.12) 100%)}
+  .rule{height:3px;border-radius:3px;
+    background:linear-gradient(90deg,var(--tm) 0%,var(--tm) 24%,rgba(60,173,182,.10) 100%)}
 
   /* ---------- chamada ---------- */
-  .kicker{display:inline-flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.24em;
-    font-size:var(--kk,22px);color:#04182B;background:#2FD9BE;padding:var(--kkp,12px 26px);border-radius:999px;text-transform:uppercase}
+  .kicker{display:inline-flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.23em;
+    font-size:var(--kk,22px);color:#03212A;background:var(--tl);padding:12px 28px;border-radius:999px;
+    text-transform:uppercase}
   .headline{font-weight:900;letter-spacing:-.015em;line-height:.96;font-size:var(--hl,124px);text-transform:uppercase}
   .headline em{font-style:normal;display:block;
-    background:linear-gradient(92deg,#5DE7D2 0%,#9BF3E4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{font-weight:500;font-size:var(--sub,34px);line-height:1.34;color:#B9D6DF;max-width:var(--subw,900px)}
+    background:linear-gradient(92deg,var(--tl) 0%,#A9DFE7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-weight:500;font-size:var(--sub,34px);line-height:1.34;color:#AECDD6;max-width:var(--subw,900px)}
   .sub b{color:#fff;font-weight:800}
 
   /* ---------- QR ---------- */
   .qrcard{background:#fff;border-radius:var(--qrr,44px);padding:var(--qrp,44px);
-    box-shadow:0 40px 90px rgba(0,0,0,.45);position:relative}
-  .qrcard::after{content:"";position:absolute;inset:calc(var(--qrp,44px) * -0.42);border-radius:calc(var(--qrr,44px) + 22px);
-    border:3px solid rgba(47,217,190,.42);pointer-events:none}
+    box-shadow:0 40px 90px rgba(0,0,0,.5);position:relative}
+  .qrcard::after{content:"";position:absolute;inset:calc(var(--qrp,44px) * -0.42);
+    border-radius:calc(var(--qrr,44px) + 22px);border:3px solid rgba(123,200,213,.40);pointer-events:none}
   .qrcard img{display:block;width:var(--qr,620px);height:var(--qr,620px)}
-  .qrlabel{margin-top:var(--qlm,26px);text-align:center;font-weight:700;letter-spacing:.06em;
-    font-size:var(--ql,22px);color:#0B2B3C}
-  .corner{position:absolute;width:var(--cs,54px);height:var(--cs,54px);border:6px solid #2FD9BE}
-  .c1{top:calc(var(--co,-26px));left:var(--co,-26px);border-right:0;border-bottom:0;border-top-left-radius:14px}
+  .qrlabel{margin-top:var(--qlm,24px);text-align:center;font-weight:700;letter-spacing:.05em;
+    font-size:var(--ql,22px);color:#00596B}
+  .corner{position:absolute;width:var(--cs,54px);height:var(--cs,54px);border:6px solid var(--tm)}
+  .c1{top:var(--co,-26px);left:var(--co,-26px);border-right:0;border-bottom:0;border-top-left-radius:14px}
   .c2{top:var(--co,-26px);right:var(--co,-26px);border-left:0;border-bottom:0;border-top-right-radius:14px}
   .c3{bottom:var(--co,-26px);left:var(--co,-26px);border-right:0;border-top:0;border-bottom-left-radius:14px}
   .c4{bottom:var(--co,-26px);right:var(--co,-26px);border-left:0;border-top:0;border-bottom-right-radius:14px}
 
   /* ---------- rodapé ---------- */
   .foot{display:flex;align-items:center;justify-content:space-between;gap:32px;
-    font-weight:600;font-size:var(--ft,24px);color:#8FB6C4;letter-spacing:.04em}
-  .foot .cred{display:flex;align-items:center;gap:14px;color:#CFE9E4}
-  .foot .cred span{color:#6FA3B4;font-weight:500}
-  .dot{width:9px;height:9px;border-radius:50%;background:#2FD9BE;flex:none}
+    font-weight:600;font-size:var(--ft,24px);color:#82AEBA;letter-spacing:.04em}
+  .foot .cred{display:flex;align-items:center;gap:14px;color:#CBE7EC}
+  .foot .cred span{color:#69A0AF;font-weight:500}
+  .dmd{width:13px;height:13px;flex:none;background:var(--tm);transform:rotate(45deg);border-radius:2px}
 
   /* ---------- layout 16:9 ---------- */
-  .h{--qr:500px;--qrp:36px;--qrr:38px;--hl:112px;--sub:32px;--subw:860px;--cs:46px;--co:-22px;--ql:19px;--qlm:22px}
+  .h{--lg:690px;--qr:500px;--qrp:36px;--qrr:38px;--hl:112px;--sub:32px;--subw:860px;
+     --cs:46px;--co:-22px;--ql:19px;--qlm:22px}
   .h .inner{position:relative;z-index:2;height:100%;padding:72px 90px 56px;display:flex;flex-direction:column}
   .h .body{flex:1;display:flex;align-items:center;gap:84px;margin:24px 0 0;min-height:0}
   .h .left{flex:1;min-width:0}
   .h .kicker{margin-bottom:30px}
   .h .headline{margin-bottom:26px}
   .h .rule{width:190px;margin:32px 0 0}
-  .h .foot{margin-top:24px;border-top:1px solid rgba(143,182,196,.22);padding-top:26px;flex:none}
+  .h .foot{margin-top:24px;border-top:1px solid rgba(130,174,186,.22);padding-top:26px;flex:none}
 
   /* ---------- layout 9:16 ---------- */
-  .v{--mk:96px;--w1:38px;--w2:54px;--sb:15px;--hl:104px;--sub:31px;--kk:20px;--qr:660px;--ql:24px;--ft:23px;--subw:100%}
-  .v .inner{position:relative;z-index:2;height:100%;padding:96px 84px 78px;display:flex;flex-direction:column;align-items:center;text-align:center}
-  .v .brand{flex-direction:column;gap:26px}
-  .v .wordmark{text-align:center}
-  .v .rule{width:170px;margin:44px auto 0}
-  .v .kicker{margin:74px 0 34px}
+  .v{--lg:700px;--sb:16px;--hl:104px;--sub:31px;--kk:20px;--qr:650px;--ql:24px;--ft:23px;--subw:100%}
+  .v .inner{position:relative;z-index:2;height:100%;padding:96px 84px 78px;
+    display:flex;flex-direction:column;align-items:center;text-align:center}
+  .v .kicker{margin:70px 0 32px}
   .v .headline{margin-bottom:26px}
   .v .qrwrap{margin-top:auto;margin-bottom:auto}
-  .v .foot{width:100%;flex-direction:column;gap:14px;text-align:center;
-    border-top:1px solid rgba(143,182,196,.22);padding-top:32px;margin-top:64px}
+  .v .foot{width:100%;flex-direction:column;gap:14px;text-align:center;flex:none;
+    border-top:1px solid rgba(130,174,186,.22);padding-top:32px;margin-top:60px}
 
   /* ---------- layout 1:1 ---------- */
-  .s{--mk:78px;--w1:31px;--w2:44px;--sb:13px;--hl:64px;--sub:24px;--kk:15px;--qr:404px;--ql:16px;--ft:17px;--qrp:28px;--qrr:30px;--qlm:18px;--subw:100%;--cs:42px;--co:-20px}
-  .s .inner{position:relative;z-index:2;height:100%;padding:56px 58px 46px;display:flex;flex-direction:column;align-items:center;text-align:center}
-  .s .brand{flex-direction:column;gap:20px}
-  .s .kicker{margin:30px 0 18px}
+  .s{--lg:540px;--sb:13px;--sbm:14px;--hl:62px;--kk:15px;--qr:446px;--ql:16px;--ft:17px;
+     --qrp:28px;--qrr:30px;--qlm:18px;--subw:100%;--cs:42px;--co:-20px}
+  .s .inner{position:relative;z-index:2;height:100%;padding:56px 58px 46px;
+    display:flex;flex-direction:column;align-items:center;text-align:center}
+  .s .kicker{margin:26px 0 16px}
   .s .headline{margin-bottom:8px}
   .s .qrwrap{margin-top:auto;margin-bottom:auto}
   .s .foot{width:100%;flex-direction:column;gap:8px;text-align:center;flex:none;
-    border-top:1px solid rgba(143,182,196,.22);padding-top:22px;margin-top:26px}
+    border-top:1px solid rgba(130,174,186,.22);padding-top:22px;margin-top:26px}
 
   .page{padding:40px;display:flex;flex-direction:column;gap:40px;align-items:flex-start}
 </style>
@@ -101,37 +100,30 @@
 <template id="bgtpl">
   <div class="bg">
     <div class="grad"></div>
-    <svg viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-      <g fill="none" stroke="#5DE7D2" stroke-width="2" opacity=".16">
-        <path d="M-100 760 C 260 640, 520 880, 900 740 S 1560 600, 2020 720"/>
-        <path d="M-100 828 C 260 708, 520 948, 900 808 S 1560 668, 2020 788"/>
-        <path d="M-100 896 C 260 776, 520 1016, 900 876 S 1560 736, 2020 856"/>
-        <path d="M-100 964 C 260 844, 520 1084, 900 944 S 1560 804, 2020 924"/>
-        <path d="M-100 1032 C 260 912, 520 1152, 900 1012 S 1560 872, 2020 992"/>
-      </g>
-      <g fill="none" stroke="#2FD9BE" stroke-width="2.5" opacity=".10">
-        <path d="M-100 300 C 300 180, 640 420, 1020 268 S 1640 140, 2020 260"/>
-        <path d="M-100 372 C 300 252, 640 492, 1020 340 S 1640 212, 2020 332"/>
-      </g>
+    <svg class="lattice" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="dmd" width="240" height="240" patternUnits="userSpaceOnUse"
+                 patternTransform="translate(-40,-30)">
+          <g fill="none" stroke="#7BC8D5" stroke-width="4" opacity=".13">
+            <rect x="60" y="60" width="120" height="120" rx="10" transform="rotate(45 120 120)"/>
+            <rect x="180" y="60" width="120" height="120" rx="10" transform="rotate(45 240 120)"/>
+            <rect x="-60" y="60" width="120" height="120" rx="10" transform="rotate(45 0 120)"/>
+            <rect x="60" y="180" width="120" height="120" rx="10" transform="rotate(45 120 240)"/>
+            <rect x="60" y="-60" width="120" height="120" rx="10" transform="rotate(45 120 0)"/>
+          </g>
+        </pattern>
+        <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
+          <stop offset=".55" stop-color="#fff" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <mask id="fademask"><rect width="1200" height="1200" fill="url(#fade)"/></mask>
+      </defs>
+      <rect width="1200" height="1200" fill="url(#dmd)" mask="url(#fademask)"/>
     </svg>
-    <div class="glow" style="width:760px;height:760px;background:#12A9A0;left:-220px;top:-260px"></div>
-    <div class="glow" style="width:640px;height:640px;background:#0C6E9B;right:-200px;bottom:-240px;opacity:.42"></div>
+    <div class="glow" style="width:780px;height:780px;background:#0E8E97;left:-240px;top:-280px;opacity:.45"></div>
+    <div class="glow" style="width:660px;height:660px;background:#00828B;right:-210px;bottom:-250px;opacity:.34"></div>
   </div>
-</template>
-
-<template id="marktpl">
-  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
-    <defs>
-      <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#5DE7D2"/><stop offset="1" stop-color="#1E9FD8"/>
-      </linearGradient>
-    </defs>
-    <circle cx="50" cy="50" r="46" fill="none" stroke="url(#mg)" stroke-width="5"/>
-    <path d="M16 56 H33 L40 38 L50 70 L58 52 L64 60 H84"
-          fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M16 74 C 27 66, 38 82, 50 74 S 73 66, 84 74"
-          fill="none" stroke="#5DE7D2" stroke-width="4.5" stroke-linecap="round" opacity=".95"/>
-  </svg>
 </template>
 
 <div class="page">
@@ -139,12 +131,9 @@
 <!-- ============ 16:9 — TELÃO / LED DE PALCO ============ -->
 <div class="art h" id="art-169">
   <div class="inner">
-    <div class="brand" data-brand>
-      <div class="wordmark">
-        <span class="l1">ANGRA</span>
-        <span class="l2">HEALTH</span>
-        <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde &nbsp;·&nbsp; 2026</div>
-      </div>
+    <div>
+      <img class="logo" src="logo-angra-health.png" alt="Angra Health">
+      <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde &nbsp;·&nbsp; 2026</div>
     </div>
 
     <div class="body">
@@ -167,7 +156,7 @@
 
     <div class="foot">
       <div>ANGRA HEALTH 2026 &nbsp;·&nbsp; Angra dos Reis / RJ</div>
-      <div class="cred"><span class="dot"></span><span>Fotografia</span> CASAL PIRES</div>
+      <div class="cred"><span class="dmd"></span><span>Fotografia</span> CASAL PIRES</div>
     </div>
   </div>
 </div>
@@ -175,12 +164,9 @@
 <!-- ============ 9:16 — TOTEM / BACKDROP VERTICAL ============ -->
 <div class="art v" id="art-916">
   <div class="inner">
-    <div class="brand" data-brand>
-      <div class="wordmark">
-        <span class="l1">ANGRA</span>
-        <span class="l2">HEALTH</span>
-        <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde &nbsp;·&nbsp; 2026</div>
-      </div>
+    <div>
+      <img class="logo" src="logo-angra-health.png" alt="Angra Health">
+      <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde &nbsp;·&nbsp; 2026</div>
     </div>
 
     <div class="kicker">Registro oficial do evento</div>
@@ -198,7 +184,7 @@
 
     <div class="foot">
       <div>ANGRA HEALTH 2026 &nbsp;·&nbsp; Angra dos Reis / RJ</div>
-      <div class="cred"><span class="dot"></span><span>Fotografia</span> CASAL PIRES</div>
+      <div class="cred"><span class="dmd"></span><span>Fotografia</span> CASAL PIRES</div>
     </div>
   </div>
 </div>
@@ -206,12 +192,9 @@
 <!-- ============ 1:1 — PAINEL LATERAL / PLACA ============ -->
 <div class="art s" id="art-11">
   <div class="inner">
-    <div class="brand" data-brand>
-      <div class="wordmark">
-        <span class="l1">ANGRA</span>
-        <span class="l2">HEALTH</span>
-        <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde</div>
-      </div>
+    <div>
+      <img class="logo" src="logo-angra-health.png" alt="Angra Health">
+      <div class="subbrand">III Simpósio de Medicina e Saúde da Costa Verde</div>
     </div>
 
     <div class="kicker">Fotos do evento</div>
@@ -228,7 +211,7 @@
 
     <div class="foot">
       <div>Aponte a câmera do celular para o QR Code</div>
-      <div class="cred"><span class="dot"></span><span>Fotografia</span> CASAL PIRES</div>
+      <div class="cred"><span class="dmd"></span><span>Fotografia</span> CASAL PIRES</div>
     </div>
   </div>
 </div>
@@ -237,7 +220,5 @@
 
 <script>
   const bg = document.getElementById('bgtpl').content;
-  const mk = document.getElementById('marktpl').content;
   document.querySelectorAll('.art').forEach(a => a.prepend(bg.cloneNode(true)));
-  document.querySelectorAll('[data-brand]').forEach(b => b.prepend(mk.cloneNode(true)));
 </script>
